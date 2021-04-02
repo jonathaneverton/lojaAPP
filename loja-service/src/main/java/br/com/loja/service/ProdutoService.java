@@ -3,6 +3,7 @@ package br.com.loja.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +21,8 @@ import br.com.loja.repository.ProdutoRepository;
 @RequestMapping("/service")
 public class ProdutoService {
  
-	@Autowired
+	@Autowired(required=false)
+	@Qualifier("ProdutoRepository")
 	private ProdutoRepository produtoRepository; 
  
 	/**
@@ -44,7 +46,7 @@ public class ProdutoService {
 	 * @param produto
 	 * @return
 	 */
-	@RequestMapping(value="/pessoa", method = RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value="/produto", method = RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody ResponseModel atualizar(@RequestBody Produto produto){
  
 		try {
@@ -56,7 +58,7 @@ public class ProdutoService {
 	}
  
 	/**
-	 * CONSULTAR TODAS AS PRODUTOS
+	 * CONSULTAR TODAS OS PRODUTOS
 	 * @return
 	 */
 	@RequestMapping(value="/produto", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)

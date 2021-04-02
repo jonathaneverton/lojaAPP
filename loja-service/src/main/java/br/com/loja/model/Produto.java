@@ -1,7 +1,5 @@
 package br.com.loja.model;
 
-import java.math.BigDecimal;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -24,7 +22,7 @@ public class Produto {
 	private Integer quantidade;
 	
 	@Column(name="valor")
-	private BigDecimal valor;
+	private Integer valor;
 
 	public Integer getIdproduto() {
 		return idproduto;
@@ -58,11 +56,11 @@ public class Produto {
 		this.quantidade = quantidade;
 	}
 
-	public BigDecimal getValor() {
+	public Integer getValor() {
 		return valor;
 	}
 
-	public void setValor(BigDecimal valor) {
+	public void setValor(Integer valor) {
 		this.valor = valor;
 	}
 	
